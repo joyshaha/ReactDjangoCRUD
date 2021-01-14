@@ -29,6 +29,7 @@ export default App;
 import React, { Component, Fragment } from "react";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import Person from "./module/person/Person";
 
 class App extends Component {
   render() {
@@ -36,6 +37,7 @@ class App extends Component {
       <Fragment>
         <Header />
         <Home />
+        <Person />
       </Fragment>
     );
   }
