@@ -12,7 +12,7 @@ from rest_framework import status
 
 
 class PersonView(APIView):
-    parser_classes = (MultiPartParser, FormParser)
+    # parser_classes = (MultiPartParser, FormParser)
 
     def get(self, request, *args, **kwargs):
         person = Person.objects.all()
@@ -39,7 +39,7 @@ class PersonDetail(APIView):
     #     return Response(personserializer.data)
 
     def put(self, request, *args, **kwargs):
-        print(args, kwargs)
+        # print(args, kwargs)
         person = Person.objects.get(pk=kwargs['pk'])
         personserializer = PersonSerializer(person, data=request.data)
         if personserializer.is_valid():

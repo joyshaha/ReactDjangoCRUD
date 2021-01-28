@@ -7,7 +7,7 @@ import {API_URL_PERSON} from "../../constants";
 
 class NewPersonForm extends React.Component {
     state = {
-        pk: 0,
+        id: 0,
         name: "",
         email: "",
         birth_date: "",
@@ -16,8 +16,9 @@ class NewPersonForm extends React.Component {
 
     componentDidMount() {
         if (this.props.person) {
-            const {pk, name, birth_date, email, location} = this.props.person;
-            this.setState({pk, name, birth_date, email, location});
+            const {id, name, birth_date, email, location} = this.props.person;
+            this.setState({id, name, birth_date, email, location});
+            console.log(id, name, birth_date, email, location)
         }
     }
 
@@ -28,6 +29,7 @@ class NewPersonForm extends React.Component {
     createPerson = e => {
         e.preventDefault();
         axios.post(API_URL_PERSON, this.state).then(() => {
+            //console.log(this.state);
             this.props.resetState();
             this.props.toggle();
         });
@@ -35,8 +37,8 @@ class NewPersonForm extends React.Component {
 
     editPerson = e => {
         e.preventDefault();
-        axios.put(API_URL_PERSON + this.state.pk, this.state).then(() => {
-            console.log(this.state.pk);
+        axios.put(API_URL_PERSON + this.state.id, this.state).then(() => {
+            //console.log(this.state.id);
             this.props.resetState();
             this.props.toggle();
         });

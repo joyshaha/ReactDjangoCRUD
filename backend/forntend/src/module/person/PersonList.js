@@ -26,7 +26,7 @@ class PersonList extends Component {
             </tr>
           ) : (
             persons.map(person => (
-              <tr key={person.pk}>
+              <tr key={person.id}>
                 <td>{person.name}</td>
                 <td>{person.email}</td>
                 <td>{person.birth_date}</td>
@@ -39,7 +39,7 @@ class PersonList extends Component {
                   />
                   &nbsp;&nbsp;
                   <RemovePersonModal
-                    pk={person.pk}
+                    pk={person.id}
                     resetState={this.props.resetState}
                   />
                 </td>

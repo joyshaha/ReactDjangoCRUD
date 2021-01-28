@@ -36,6 +36,7 @@ class NewStudentForm extends React.Component {
     editStudent = e => {
         e.preventDefault();
         axios.put(API_URL + this.state.pk, this.state).then(() => {
+            //console.log(this.state.pk);
             this.props.resetState();
             this.props.toggle();
         });
